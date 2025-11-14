@@ -1,0 +1,19 @@
+apiVersion: plugin.halo.run/v1alpha1
+kind: Plugin
+metadata:
+  name: log-viewer
+spec:
+  enabled: true
+  requires: ">=2.21.0"
+  author:
+    name: Ryan Wang
+    website: https://github.com/ruibaby
+  logo: icon.svg
+  homepage: https://github.com/ruibaby/plugin-log-viewer#readme
+  repo: https://github.com/ruibaby/plugin-log-viewer
+  issues: https://github.com/ruibaby/plugin-log-viewer/issues
+  displayName: "Log Viewer"
+  description: "在线查看 Halo 运行日志"
+  license:
+    - name: "GPL-3.0"
+      url: "https://github.com/ruibaby/plugin-log-viewer/blob/main/LICENSE"
