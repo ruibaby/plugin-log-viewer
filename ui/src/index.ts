@@ -1,4 +1,4 @@
-import { definePlugin } from '@halo-dev/console-shared'
+import { definePlugin } from '@halo-dev/ui-shared'
 import { markRaw } from 'vue'
 import MingcuteFileCodeLine from '~icons/mingcute/file-code-line'
 
@@ -25,4 +25,18 @@ export default definePlugin({
       },
     },
   ],
+  extensionPoints: {
+    'console:dashboard:widgets:internal:quick-action:item:create': () => {
+      return [
+        {
+          title: '查看日志',
+          icon: markRaw(MingcuteFileCodeLine),
+          id: 'log-viewer',
+          route: {
+            name: 'LogViewer',
+          },
+        },
+      ]
+    },
+  },
 })
