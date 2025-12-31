@@ -9,6 +9,7 @@ import MingcuteDownload3Line from '~icons/mingcute/download-3-line'
 import MingcuteFileCodeLine from '~icons/mingcute/file-code-line'
 
 const enableRefetch = ref(true)
+const enableAutoScroll = ref(true)
 
 const { data, isFetching } = useQuery({
   queryKey: ['plugin:log-viewer:data'],
@@ -29,7 +30,9 @@ watch(
     }
     if (editor.value.getValue() !== value) {
       editor.value.setValue(value ?? '')
-      editor.value.revealLine(editor.value.getModel()?.getLineCount() ?? 0)
+      if (enableAutoScroll.value) {
+        editor.value.revealLine(editor.value.getModel()?.getLineCount() ?? 0)
+      }
     }
   },
   {
@@ -53,6 +56,9 @@ function handleDownload() {
       </Transition>
       <VButton size="sm" ghost @click="enableRefetch = !enableRefetch">
         {{ enableRefetch ? '自动刷新（开启）' : '自动刷新（关闭）' }}
+      </VButton>
+      <VButton size="sm" ghost @click="enableAutoScroll = !enableAutoScroll">
+        {{ enableAutoScroll ? '自动滚动（开启）' : '自动滚动（关闭）' }}
       </VButton>
       <VButton @click="handleDownload">
         <template #icon>
