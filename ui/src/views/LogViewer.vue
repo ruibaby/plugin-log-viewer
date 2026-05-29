@@ -44,6 +44,13 @@ function handleDownload() {
   const blob = new Blob([data.value ?? ''], { type: 'text/plain;charset=utf-8' })
   saveAs(blob, `halo-log-${Date.now()}.log`)
 }
+
+const enableRefetchLabel = computed(() =>
+  ['自动刷新', `（已${enableRefetch.value ? '开启' : '关闭'}）`].join(''),
+)
+const enableAutoScrollLabel = computed(() =>
+  ['自动滚动', `（已${enableAutoScroll.value ? '开启' : '关闭'}）`].join(''),
+)
 </script>
 <template>
   <VPageHeader title="日志">
@@ -55,10 +62,10 @@ function handleDownload() {
         <VStatusDot v-show="isFetching" state="warning" />
       </Transition>
       <VButton size="sm" ghost @click="enableRefetch = !enableRefetch">
-        {{ enableRefetch ? '自动刷新（开启）' : '自动刷新（关闭）' }}
+        {{ enableRefetchLabel }}
       </VButton>
       <VButton size="sm" ghost @click="enableAutoScroll = !enableAutoScroll">
-        {{ enableAutoScroll ? '自动滚动（开启）' : '自动滚动（关闭）' }}
+        {{ enableAutoScrollLabel }}
       </VButton>
       <VButton @click="handleDownload">
         <template #icon>
