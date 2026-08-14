@@ -1,4 +1,4 @@
-import * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
+import * as monaco from 'monaco-editor'
 import { onMounted, onUnmounted, shallowRef, useTemplateRef, watchEffect, type Ref } from 'vue'
 
 function registerSpringLogLanguage() {
