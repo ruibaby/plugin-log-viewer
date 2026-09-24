@@ -3,13 +3,14 @@ import { useMonaco } from '@/composables/use-monaco'
 import { axiosInstance } from '@halo-dev/api-client'
 import { VButton, VPageHeader, VStatusDot } from '@halo-dev/components'
 import { useQuery } from '@tanstack/vue-query'
+import { useLocalStorage } from '@vueuse/core'
 import { saveAs } from 'file-saver'
-import { computed, ref, watch } from 'vue'
+import { computed, watch } from 'vue'
 import MingcuteDownload3Line from '~icons/mingcute/download-3-line'
 import MingcuteFileCodeLine from '~icons/mingcute/file-code-line'
 
-const enableRefetch = ref(true)
-const enableAutoScroll = ref(true)
+const enableRefetch = useLocalStorage('plugin:log-viewer:enableRefetch', true)
+const enableAutoScroll = useLocalStorage('plugin:log-viewer:enableAutoScroll', true)
 
 const { data, isFetching } = useQuery({
   queryKey: ['plugin:log-viewer:data'],

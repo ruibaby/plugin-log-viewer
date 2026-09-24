@@ -25,6 +25,7 @@
     "@halo-dev/components": "^2.26.0",
     "@halo-dev/ui-shared": "^2.26.0",
     "@tanstack/vue-query": "4",
+    "@vueuse/core": "^14.4.0",
     "axios": "^1.13.2",
     "file-saver": "^2.0.5",
     "monaco-editor": "^0.56.0",
