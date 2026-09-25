@@ -11,7 +11,7 @@
 
 ## 开发
 
-```bash
+```shell
 git clone https://github.com/ruibaby/plugin-log-viewer && cd plugin-log-viewer
 ./gradlew haloServer
 ```
